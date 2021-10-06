@@ -9,11 +9,12 @@ function Header() {
     const { firebase } = useContext(FirebaseContext);
     const { user } = useContext(UserContext);
     const history = useHistory();
-
+    
+    console.log(user)
     return (
         <header className="h-16 bg-white border-b border-gray-primary mb-8">
             <div className="container mx-auto max-w-screen-lg h-full">
-                <div className="flex justify-between f-full">
+                <div className="flex justify-between h-full">
                     <div className="text-gray-700 text-center flex items-center align-items cursor-pointer">
                         <h1 className="flex justify-center w-full">
                             <Link to={ROUTES.DASHBOARD} aria-label="Instagram logo">
@@ -65,18 +66,30 @@ function Header() {
                                         d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                     </svg>
                                 </button>
+                                
                                 <div className="flex items-center cursor-pointer">
-                                    <Link to={`/p/${user.displayname}`} >
+                                    <Link to={`/p/${user.displayName}`} >
                                         <img 
                                             className="rounded-full h-8 w-8 flex"
                                             src={`/images/avatars/default.png`}
-                                            alt={`${user.displayname} profile`}
+                                            alt={`${user.displayName} profile`}
                                         />
                                     </Link>
                                 </div>
                             </>
                         ) : (
-                            <></>
+                            <>
+                                <Link to={ROUTES.LOGIN}>
+                                    <button type="button" className="bg-blue-medium font-bold text-sm rounded text-white w-20 h-8">
+                                        Log In
+                                    </button>                                        
+                                </Link>
+                                <Link to={ROUTES.SIGN_UP}>
+                                    <button type="button" className="font-bold text-sm rounded text-blue-medium w-20 h-8">
+                                        Sign Up 
+                                    </button>                                        
+                                </Link>
+                            </>
                         )
                         }
                     </div>
