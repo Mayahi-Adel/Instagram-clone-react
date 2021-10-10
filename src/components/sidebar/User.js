@@ -11,7 +11,7 @@ export default function User ({username, fullName}) {
             <div className="flex items-center justify-between col-span-1">
                 <img 
                     className="rounded-full w-16 h-16 flex  "
-                    src={`/images/avatars/${username}.png`}
+                    src={`/images/avatars/${username}.jpg`}
                 />
             </div>
             <div className="col-span-3 ">
