@@ -9,7 +9,6 @@ export default function Profile() {
 
     const { username } = useParams();
     const [user, setUser] = useState(null)
-    const [userExists, setUserExists] = useState(false);
     const history = useHistory();
 
 
@@ -18,7 +17,6 @@ export default function Profile() {
             const user = await getUserByUsername(username);
             if(user.length > 0) {
                 setUser(user[0]);
-                setUserExists(true);
             } else {
                 //setUserExists(false);
                 history.push(ROUTES.NOT_FOUND)
@@ -29,7 +27,7 @@ export default function Profile() {
 
     }, [username, history]);
 
-    return userExists ? (
+    return user?.username ?  (
             <div className="bg-gray-background">
                 <Header />
                 <div className="mx-auto mx-width-screen-lg">

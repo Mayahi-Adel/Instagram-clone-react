@@ -2,7 +2,7 @@ import { useReducer, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Header from './header';
 import Photos from './photos';
-import { getUserByUsername, getUserPhotosByUsername } from '../../services/firebase';
+import { getUserPhotosByUsername } from '../../services/firebase';
 
 
 
@@ -30,7 +30,12 @@ export default function Profile({ user}) {
     },[user.username]);
     return (
         <>
-            <Header />
+            <Header 
+                photosCount={photosCollection ? photosCollection.length : 0}
+                profile={profile}
+                followerCount={followerCount}
+                setFollowerCount={dispatch}
+            />
             <Photos photos={photosCollection} />
             <p>{user.username}</p>
         </>
