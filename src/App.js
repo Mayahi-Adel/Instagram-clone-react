@@ -32,7 +32,6 @@ function App() {
             <ProtectedRoute user={user} path={ROUTES.DASHBOARD} exact>
               <Dashboard />
             </ProtectedRoute>
-            <Route path={ROUTES.DASHBOARD} component={Dashboard} /> 
             <Route component={NotFound} /> 
           </Switch>
         </Suspense>
