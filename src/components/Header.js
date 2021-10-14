@@ -9,7 +9,7 @@ function Header() {
     const { firebase } = useContext(FirebaseContext);
     const { user } = useContext(UserContext);
     const history = useHistory();
-    
+
     return (
         <header className="h-16 bg-white border-b border-gray-primary mb-8">
             <div className="container mx-auto max-w-screen-lg h-full">
@@ -67,11 +67,14 @@ function Header() {
                                 </button>
                                 
                                 <div className="flex items-center cursor-pointer">
-                                    <Link to={`/p/${user.displayName}`} >
+                                    <Link to={`/p/${user.username}`} >
                                         <img 
                                             className="rounded-full h-8 w-8 flex"
-                                            src={`/images/avatars/default.png`}
+                                            src={`/images/avatars/${user?.displayname}.jpg`}
                                             alt={`${user.displayName} profile`}
+                                            onError={(e) => {
+                                                e.target.src = `/images/avatars/default.png`;
+                                            }} 
                                         />
                                     </Link>
                                 </div>

@@ -6,5 +6,5 @@ export default function Photos ({ photos }) {
 }
 
 Photos.propTypes = {
-    Photos: PropTypes.array.isRequired
+    photos: PropTypes.array
 }
