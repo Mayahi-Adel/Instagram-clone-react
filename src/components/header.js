@@ -67,10 +67,10 @@ function Header() {
                                 </button>
                                 
                                 <div className="flex items-center cursor-pointer">
-                                    <Link to={`/p/${user.displayName}`} >
+                                    <Link to={`/p/${user.displayName.toLowerCase()}`} >
                                         <img 
                                             className="rounded-full h-8 w-8 flex"
-                                            src={`/images/avatars/${user?.displayname}.jpg`}
+                                            src={`/images/avatars/${user?.displayName.toLowerCase()}.jpg`}
                                             alt={`${user.displayName} profile`}
                                             onError={(e) => {
                                                 e.target.src = `/images/avatars/default.png`;
